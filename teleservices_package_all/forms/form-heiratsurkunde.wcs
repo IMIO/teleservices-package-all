@@ -461,7 +461,7 @@
         <item>Autre (&#224; pr&#233;ciser)</item>
       </items>
       <data_source>
-        <type>imio_ec_relation_avec_la_personne_concernee</type>
+        <type>imio_ec_relation_avec_la_personne_concernee_all</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
