@@ -1,0 +1,16 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Python Tools for Visual Studio (PTVS)
+__pycache__/
+*.pyc
+
+# Local History for Visual Studio
+.localhistory/
+
+# PyCharm local configuration files
+.idea/*
