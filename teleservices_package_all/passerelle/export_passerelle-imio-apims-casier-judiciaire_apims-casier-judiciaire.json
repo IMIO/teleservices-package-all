@@ -1,0 +1,17 @@
+{
+  "resources": [
+    {
+      "@type": "passerelle-resource",
+      "resource_type": "passerelle_imio_apims_casier_judiciaire.apimscasierjudiciaireconnector",
+      "title": "Connecteur casier judiciaire",
+      "slug": "apims-casier-judiciaire",
+      "description": "Connecteur casier judiciaire",
+      "log_level": "INFO",
+      "access_rights": [],
+      "url": "https://api.imio.be/bosa/v1",
+      "username": "username",
+      "password": "password",
+      "municipality_nis_code": "nis_code"
+    }
+  ]
+}

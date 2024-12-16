@@ -1,0 +1,168 @@
+{
+    "roles": [
+        {
+            "slug": "citoyen-test",
+            "name": "Citoyen (test)",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-du-service-enseignement",
+            "name": "Recrutement Personnel du service enseignement",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-technique-specifique",
+            "name": "Recrutement Personnel technique / sp\u00e9cifique",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "agents-traitant-population-etat-civil",
+            "name": "Agents traitant - Population, etat civil",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            },
+            "parents": [
+                {
+                    "ou": {
+                        "slug": "default"
+                    },
+                    "name": "Agent",
+                    "slug": "agent"
+                }
+            ]
+        },
+        {
+            "slug": "agent",
+            "name": "Agent",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-social",
+            "name": "Recrutement Personnel social",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "administrateur-fonctionnel",
+            "name": "Administrateur fonctionnel",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            },
+            "parents": [
+                {
+                    "ou": {
+                        "slug": "default"
+                    },
+                    "name": "Agent",
+                    "slug": "agent"
+                }
+            ]
+        },
+        {
+            "slug": "debug",
+            "name": "Debug",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            },
+            "parents": [
+                {
+                    "ou": {
+                        "slug": "default"
+                    },
+                    "name": "Agent",
+                    "slug": "agent"
+                }
+            ]
+        },
+        {
+            "slug": "recrutement-autre",
+            "name": "Recrutement Autre",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-de-cuisine",
+            "name": "Recrutement Personnel de cuisine",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-de-nettoyage",
+            "name": "Recrutement Personnel de nettoyage",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "agent-ayant-acces-aux-fabriques",
+            "name": "Agent ayant acces aux fabriques",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            },
+            "parents": [
+                {
+                    "ou": {
+                        "slug": "default"
+                    },
+                    "name": "Agent",
+                    "slug": "agent"
+                }
+            ]
+        },
+        {
+            "slug": "recrutement-personnel-administratif",
+            "name": "Recrutement Personnel administratif",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-ouvrier",
+            "name": "Recrutement Personnel ouvrier",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-soignant",
+            "name": "Recrutement Personnel soignant",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        },
+        {
+            "slug": "recrutement-personnel-du-service-a-lenfance",
+            "name": "Recrutement Personnel du service à l’enfance",
+            "emails_to_members": true,
+            "ou": {
+                "slug": "default"
+            }
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <category id="111" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/categories/111/">
   <name>Bev&#246;lkerungsdienst</name>
-  <url_name>bevolkerungsdienst-en-cours-de-prepa</url_name>
+  <url_name>bevolkerungsdienst</url_name>
   <position>3</position>
 </category>
