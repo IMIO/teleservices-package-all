@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="103" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/103/">
+  <name>Mon Dossier : Mode de d&#233;livrance</name>
+  <slug>mode_de_delivrance</slug>
+  <documentation>Source de donn&#233;e pour le choix de d&#233;livrance mon dossier ou par la commune.</documentation>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "mondossier","text": "Je souhaite r&#233;cup&#233;rer directement le document PDF (Connexion avec carte d'identit&#233; + code pin requis ou itsme pour les actes).", "disabled": true}, {"id": "commune","text": "Je souhaite recevoir mes documents par le biais de mon administration communale.", "disabled": false}]</value>
+  </data_source>
+</datasource>

@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<formdef id="170" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/170/">
+  <name>Einen Strafregisterauszug erhalten</name>
+  <url_name>einen-strafregisterauszug-erhalten</url_name>
+  <submission_user_association>any</submission_user_association>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="bevolkerungsdienst-en-cours-de-prepa" category_id="111">Bev&#246;lkerungsdienst</category>
+  <workflow slug="imio-extrait-de-casier-judiciaire-liaison-all" workflow_id="48">iMio - Extrait de casier judiciaire - liaison ALL</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Einen Strafregisterauszug erhalten</label>
+      <id type="str">3</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;hr&gt;
+&lt;p&gt;{{ form_option_commentaire|linebreaks }}&lt;/p&gt;
+
+&lt;hr&gt;</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">31</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;a href="{{form_option_lien_vers_l_extrait_de_casier_judiciaire_5962}}" rel="nofollow"&gt;Lien vers l&amp;#39;extrait de casier judiciaire mod&amp;egrave;le 596.2&lt;/a&gt;&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_lien_vers_l_extrait_de_casier_judiciaire_5962</value>
+      </condition>
+      <display_locations />
+      <id type="str">fa9ea124-6ca1-4f89-9f0c-0cb14fca00fb</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Name</label>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">20</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Vorname</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">21</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nationalregisternummer</label>
+      <required type="bool">True</required>
+      <varname type="str">nn</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">12</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">E-Mail-Adresse</label>
+      <required type="bool">True</required>
+      <varname type="str">courriel</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>True</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">32</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Langue</label>
+      <required type="bool">True</required>
+      <hint type="str">S&#233;lectionnez une langue</hint>
+      <varname type="str">language</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <items />
+      <data_source>
+        <type>carddef:imio-langage-bosa</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="int">150</image_desktop_size>
+      <image_mobile_size type="int">75</image_mobile_size>
+      <id type="str">13</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">W&#228;hlen Sie den gew&#252;nschten Auszug</label>
+      <required type="bool">True</required>
+      <varname type="str">type_extrait</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>imio_extrait_de_casier_judiciaire_type_1</type>
+        <value>webservice.get_baec_documents['items']</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">4</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="citoyen-test" role_id="e902f5dd27654bf19c64973ea6c92586">Citoyen (test)</role>
+  </user-roles>
+  <options>
+    <option varname="activer_anonymisation" type="bool">false</option>
+    <option varname="commentaire" />
+    <option varname="delai_anonymisation" />
+  </options>
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-extrait-de-casier-judiciaire-liaison" new-workflow="imio-extrait-de-casier-judiciaire-liaison-all" timestamp="2024-11-08T10:42:24.281985+01:00">
+      <timestamp>2024-11-08T10:42:24.281985+01:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
+</formdef>

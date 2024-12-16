@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<mail-template id="26" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/26/">
+  <name>Indus - Usager - En attente du virement ALL</name>
+  <slug>indus-usager-en-attente-du-virement-all</slug>
+  <subject>{{ form_name }} - En attente de paiement</subject>
+  <body>Guten Tag,
+
+Wir bitten Sie, den damit verbundenen Betrag wie folgt zu begleichen:
+
+{{ form_name }}
+
+Der zu zahlende Betrag ist wie folgt : {{ form_var_wf_total_commande }} &#8364;.
+Finden Sie unten die n&#252;tzlichen Informationen zur &#220;berweisung.
+
+- Beg&#252;nstigter: Gemeindeverwaltung {{ commune_name }} - {{ administration_adresse }}
+- Kontonummer des Empf&#228;ngers (IBAN) : {{form_option_iban}}
+- Referenz der Bestellung (freie Kommunikation) :{{ form_number }}
+- Betrag der Bestellung : {{ form_var_wf_total_commande }}
+
+Unsere Dienststellen bearbeiten die Antr&#228;ge so schnell wie m&#246;glich. Sie werden per E-Mail &#252;ber den Fortschritt Ihres Antrags informiert.
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen.&lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Zur Referenz: Hier sind die Details des Antrags :
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Der Tracking-Code f&#252;r Ihren Antrag lautet wie folgt: **{{form_tracking_code}}**
+Wenn es Probleme gibt, halten Sie den Tracking-Code bereit und wenden Sie sich an die Verwaltung.
+{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,</body>
+</mail-template>

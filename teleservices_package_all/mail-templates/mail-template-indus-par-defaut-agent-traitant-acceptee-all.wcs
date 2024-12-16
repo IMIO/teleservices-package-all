@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<mail-template id="19" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/19/">
+  <name>Indus - Par d&#233;faut - Agent traitant - Accept&#233;e ALL</name>
+  <slug>indus-par-defaut-agent-traitant-acceptee-all</slug>
+  <documentation>Email envoy&#233; &#224; l'agent traitant lorsqu'il a accept&#233; une demande.</documentation>
+  <subject>{{ form_name }} - Anfrage angenommen</subject>
+  <body>
+Guten Tag,
+Wir best&#228;tigen Ihnen den Zahlungseingang bez&#252;glich des folgenden Antrags:
+  {{ form_url_backoffice }}
+
+{% if form_status_changed %}
+Le statut de la demande est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; 
+&#224; &#171;&#160;{{ form_status }}&#160;&#187;).
+{% endif %}
+
+{% if form_comment %} Neuer Kommentar : {{ form_comment }}{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,
+</body>
+</mail-template>

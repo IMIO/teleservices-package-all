@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="196" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/196/">
+  <name>iMio - Domicile Population - ALL</name>
+  <slug>imio_domicile_population_1</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "{{ commune_slug }}", "text": "Wohnhaft in {{ commune_name }}"}, {"id": "pas_{{ commune_slug }}", "text": "Nicht in {{ commune_name }} wohnhaft "}, {"id": "plus_{{ commune_slug }}", "text": "Nicht mehr wohnhaft in {{ commune_name }}"}]</value>
+  </data_source>
+</datasource>

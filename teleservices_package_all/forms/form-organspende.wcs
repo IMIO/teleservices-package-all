@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<formdef id="167" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/167/">
+  <name>Organspende</name>
+  <url_name>organspende</url_name>
+  <description>&lt;p&gt;&lt;em&gt;Laden Sie &#252;ber diesen Schritt ein Formular im PDF-Format herunter und schicken Sie es auf demselben Weg ausgef&#252;llt an Ihre Gemeindeverwaltung zur&#252;ck.&lt;/em&gt;&lt;/p&gt;</description>
+  <keywords>Organspende</keywords>
+  <submission_user_association>any</submission_user_association>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="etat-civil-en-allemand" category_id="101">Standesamt</category>
+  <workflow slug="imio-documents-pdf" workflow_id="29">iMio - Documents PDF</workflow>
+  <fields>
+    <field>
+      <type>page</type>
+      <label type="str">Dokument zum herunterladen</label>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>False</value>
+          </condition>
+          <error_message>Vous pouvez t&#233;l&#233;charger le document en cliquant sur le lien "Don d'organes".</error_message>
+        </post_condition>
+      </post_conditions>
+      <id type="str">1</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">24078427-8929-40ea-94d1-8d3e6f1c9f4c</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p style="line-height: 20.8px;"&gt;&lt;u&gt;Bearbeitung:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p style="line-height: 20.8px;"&gt;&lt;strong&gt;Dieses&amp;nbsp;Dokument&amp;nbsp;wird&amp;nbsp;Ihnen&amp;nbsp;kostenlos&amp;nbsp;zur&amp;nbsp;Verf&amp;uuml;gung&amp;nbsp;gestellt.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol style="line-height: 20.8px;"&gt;
+	&lt;li&gt;Das&amp;nbsp;Dokument&amp;nbsp;herunterladen&lt;/li&gt;
+	&lt;li&gt;Das&amp;nbsp;Dokument ausdrucken&amp;nbsp;&lt;/li&gt;
+	&lt;li&gt;Das Dokument ausf&amp;uuml;llen&lt;/li&gt;
+	&lt;li&gt;Um&amp;nbsp;Ihren&amp;nbsp;Antrag&amp;nbsp;abzuschlie&amp;szlig;en,&amp;nbsp;bitte&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Gemeinde&amp;nbsp;vorstellig&amp;nbsp;werden&amp;nbsp;{{form_option_lieu_depot}}.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;{% if form_option_info_plus %}&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Plus d&amp;#39;infos ?&amp;nbsp;&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;Rendez-vous sur la&amp;nbsp;&lt;a href="{{form_option_info_plus}}" target="_blank" rel="nofollow"&gt;page sp&amp;eacute;cifique de la d&amp;eacute;marche&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;{% endif %}&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">2</id>
+    </field>
+  </fields>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+</formdef>

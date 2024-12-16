@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<mail-template id="22" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/22/">
+  <name>Indus - Usager - Demande d'infos pour remboursement ALL</name>
+  <slug>indus-usager-demande-d-infos-pour-remboursement-all</slug>
+  <subject>{{form_name}} - Bitte um Informationen zur Erstattung</subject>
+  <body>Guten Tag,
+
+Aufgrund der Ablehnung Ihres kostenpflichtigen Vorgangs in H&#246;he von{{form_var_wf_total_commande}} &#8364;, konnten wir Ihre bereits erfolgte Zahlung nicht r&#252;ckg&#228;ngig machen. Bitte f&#252;llen Sie das Formular an die folgende Adresse aus, damit wir die R&#252;ckerstattung vornehmen k&#246;nnen : {{form_url}}#wf-actions
+
+Zur Erinnerung: Es handelt sich um den folgenden Antrag : {{form_name}}
+
+Achtung: Wenn Sie mit einer Kreditkarte bezahlt haben, geben Sie bitte Ihre klassische IBAN-Kontonummer an.
+
+Mit freundlichen Gr&#252;&#223;en,
+</body>
+</mail-template>

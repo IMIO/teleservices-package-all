@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<mail-template id="27" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/27/">
+  <name>indus - Usager - Notification de commentaire ALL</name>
+  <slug>indus-usager-notification-de-commentaire-all</slug>
+  <subject>{{form_name}} - Nouveau commentaire</subject>
+  <body>Guten Tag,
+
+Kommentar der Verwaltung an Sie :
+
+{{comment_commentaire}}
+
+Zur Erinnerung: Es handelt sich um den folgenden Antrag : {{form_name}}
+
+Sie haben die M&#246;glichkeit, den Verlauf dieses Antrags &#252;ber folgenden Link einzusehen:
+ &lt;{{ form_url }}&gt;`_
+
+Mit freundlichen Gr&#252;&#223;en,</body>
+</mail-template>

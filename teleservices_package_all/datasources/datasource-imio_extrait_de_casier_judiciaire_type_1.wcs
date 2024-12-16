@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<datasource id="198" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/198/">
+  <name>iMio - Einen Strafregisterauszug - Type</name>
+  <slug>imio_extrait_de_casier_judiciaire_type_1</slug>
+  <documentation>Types d'extraits de casier judiciaire</documentation>
+  <cache_duration>86400</cache_duration>
+  <data_attribute>items</data_attribute>
+  <id_attribute>code</id_attribute>
+  <text_attribute>title</text_attribute>
+  <data_source>
+    <type>json</type>
+    <value>{{ passerelle_url }}passerelle-imio-apims-casier-judiciaire/apims-casier-judiciaire/list-extract-types?language=de&amp;modele_2={{form_option_modele_2}}</value>
+  </data_source>
+</datasource>

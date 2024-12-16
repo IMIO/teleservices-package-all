@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<mail-template id="25" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/25/">
+  <name>Indus - Par d&#233;faut - Usager - Termin&#233;e ALL</name>
+  <slug>indus-par-defaut-usager-terminee-all</slug>
+  <documentation>Email envoy&#233; &#224; l'usager lorsque sa demande est termin&#233;e</documentation>
+  <subject>{{ form_name }} - D&#233;marche finalis&#233;e</subject>
+  <body>Guten Tag,
+
+Wir teilen Ihnen mit, dass der folgende Anfrage abgeschlossen ist : {{ form_name }}.
+
+{% if form_comment %}
+Neuer Kommentar&#160;: {{ form_comment }}
+{% endif %}
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Der Tracking-Code f&#252;r Ihren Antrag lautet wie folgt:**{{form_tracking_code}}**
+Wenn es Probleme gibt, halten Sie den Tracking-Code bereit und wenden Sie sich an die Verwaltung.{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,
+</body>
+</mail-template>

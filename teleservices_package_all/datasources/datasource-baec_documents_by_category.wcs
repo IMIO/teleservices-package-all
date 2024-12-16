@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<datasource id="187" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/187/">
+  <name>iMio BAEC - Liste des documents de la personne par cat&#233;gorie</name>
+  <slug>baec_documents_by_category</slug>
+  <documentation>Liste des documents de la personne par cat&#233;gorie.</documentation>
+  <data_attribute>items</data_attribute>
+  <id_attribute>title</id_attribute>
+  <text_attribute>title</text_attribute>
+  <data_source>
+    <type>json</type>
+    <value>{{ passerelle_url }}passerelle-imio-apims-baec/apims-baec/list-person-documents?rn={% if form_option_liaison_baec == "Staging" %}89041522261{% elif form_option_liaison_baec == "Production" %}{{ form_user_var_niss }}{% endif %}{% if form_var_baec_category %}&amp;category={{ form_var_baec_category }}{% endif %}</value>
+  </data_source>
+</datasource>

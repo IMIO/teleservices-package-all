@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="114" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/114/">
+  <name>DS_lien_parente_ALL</name>
+  <slug>ds_lien_parente_all</slug>
+  <documentation>Liste des liens de parent&#233;</documentation>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "ehemann", "text": "Ehemann"}, {"id": "ehefrau", "text": "Ehefrau"}, {"id": "sohn", "text": "Sohn"}, {"id": "tochter", "text": "Tochter"}, {"id": "schwiegersohn", "text": "Schwiegersohn"}, {"id": "schwiegertochter", "text": "Schwiegertochter"}, {"id": "enkel", "text": "Enkel"}, {"id": "enkelin", "text": "Enkelin"}, {"id": "vater", "text": "Vater"}, {"id": "mutter", "text": "Mutter"}, {"id": "stiefvater", "text": "Stiefvater"}, {"id": "schwiegervater", "text": "Schwiegervater"}, {"id": "stiefmutter", "text": "Stiefmutter"}, {"id": "schwiegermutter", "text": "Schwiegermutter"}, {"id": "gro\u00dfvater", "text": "Gro\u00dfvater"}, {"id": "gro\u00dfmutter", "text": "Gro\u00dfmutter"}, {"id": "stiefsohn", "text": "Stiefsohn"}, {"id": "stieftochter", "text": "Stieftochter"}, {"id": "bruder", "text": "Bruder"}, {"id": "schwester", "text": "Schwester"}, {"id": "stiefbruder", "text": "Stiefbruder"}, {"id": "schwager", "text": "Schwager"}, {"id": "stiefschwester", "text": "Stiefschwester"}, {"id": "schw\u00e4gerin", "text": "Schw\u00e4gerin"}, {"id": "onkel", "text": "Onkel"}, {"id": "tante", "text": "Tante"}, {"id": "neffe", "text": "Neffe"}, {"id": "nichte", "text": "Nichte"}, {"id": "vetter", "text": "Vetter"}, {"id": "cousine", "text": "Cousine"}, {"id": "urenkel", "text": "Urenkel"}, {"id": "urenkelin", "text": "Urenkelin"}, {"id": "verwandt", "text": "Verwandt"}, {"id": "nicht verwandt", "text": "Nicht verwandt"}]</value>
+  </data_source>
+</datasource>

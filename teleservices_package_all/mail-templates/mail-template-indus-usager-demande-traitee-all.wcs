@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<mail-template id="20" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/20/">
+  <name>Indus - Usager - Demande trait&#233;e ALL</name>
+  <slug>indus-usager-demande-traitee-all</slug>
+  <subject>{{ form_name }} : Anfrage bearbeitet</subject>
+  <body>Guten Tag{% if form_var_prenom %} {{ form_var_prenom }}{% endif %},
+
+Wir teilen Ihnen mit, dass Ihre Anfrage bez&#252;glich des Antrags {{ form_name }} bearbeitet wurde.
+
+"{{form_workflow_data_comment_reponse}}"
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_evolution %}
+{{ form_evolution }}
+{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,</body>
+</mail-template>

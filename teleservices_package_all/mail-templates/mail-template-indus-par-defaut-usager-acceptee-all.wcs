@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<mail-template id="24" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/24/">
+  <name>Indus - Par d&#233;faut - Usager - Accept&#233;e ALL</name>
+  <slug>indus-par-defaut-usager-acceptee-all</slug>
+  <documentation>Email envoy&#233; &#224; l'usager lorsque sa demande est accept&#233;e</documentation>
+  <subject>{{ form_name }} - Antrag angenommen</subject>
+  <body>Guten Tag,
+
+{% if form_status_changed %}
+Der folgende Antrag wurde angenommen  &#160;: {{ form_name }}
+{% endif %}
+
+{% if form_comment %}
+Neuer Kommentar&#160;: {{ form_comment }}
+{% endif %}
+
+Le statut de votre demande a donc chang&#233;, il est pass&#233; de &#171;&#160;{{ form_previous_status }}&#160;&#187; &#224; &#171;&#160;{{ form_status }}&#160;&#187;.
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen.
+ &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Der Tracking-Code f&#252;r Ihren Antrag lautet wie folgt:
+ **{{form_tracking_code}}**
+Wenn es Probleme gibt, halten Sie den Tracking-Code bereit und wenden Sie sich an die Verwaltung.
+
+{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,
+</body>
+</mail-template>

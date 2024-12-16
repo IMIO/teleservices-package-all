@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mail-template id="21" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/21/">
+  <name>Indus - Par d&#233;faut - Usager - Refus&#233;e ALL</name>
+  <slug>indus-par-defaut-usager-refusee-all</slug>
+  <documentation>Email envoy&#233; &#224; l'usager lorsque sa demande est refus&#233;e.</documentation>
+  <subject>{{ form_name }} - Antrag abgelehnt</subject>
+  <body>Guten Tag,
+
+{% if form_status_changed %}
+Wir bedauern, Ihnen mitteilen zu m&#252;ssen, dass Ihre Anfrage nicht erfolgreich war.
+Zur Erinnerung: Es handelt sich um den folgenden Antrag : {{ form_name }}.
+{% endif %}
+
+{% if refus_var_motif %}
+Grund f&#252;r die Ablehnung: {{ refus_var_motif }}
+{% endif %}
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_tracking_code %}
+Der Tracking-Code f&#252;r Ihren Antrag lautet wie folgt: **{{form_tracking_code}}**
+Wenn es Probleme gibt, halten Sie den Tracking-Code bereit und wenden Sie sich an die Verwaltung.
+{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,
+</body>
+</mail-template>

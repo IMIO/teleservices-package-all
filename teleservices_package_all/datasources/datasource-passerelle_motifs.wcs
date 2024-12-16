@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="185" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/185/">
+  <name>passerelle_motifs</name>
+  <slug>passerelle_motifs</slug>
+  <documentation>Fait r&#233;f&#233;rence au plugins passerelle afin de r&#233;cup&#233;rer les motifs.</documentation>
+  <data_source>
+    <type>json</type>
+    <value>{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/motivationterms/</value>
+  </data_source>
+</datasource>

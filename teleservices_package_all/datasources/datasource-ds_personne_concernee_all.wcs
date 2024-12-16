@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<datasource id="115" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/115/">
+  <name>DS_personne_concernee_ALL</name>
+  <slug>ds_personne_concernee_all</slug>
+  <documentation>Source de donn&#233;e des personnes concern&#233;es (demandeur ou un tiers)</documentation>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id" : "moi" , "text": "Betrifft mich oder meine Beg&#252;nstigten"}, {"id" : "tiers", "text" : "Betrifft eine andere Person"}]</value>
+  </data_source>
+  <category slug="imio-population-etat-civil-all" category_id="2">iMio - Population - Etat civil - ALL</category>
+</datasource>

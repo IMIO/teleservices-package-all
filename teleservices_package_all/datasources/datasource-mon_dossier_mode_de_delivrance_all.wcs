@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="118" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/118/">
+  <name>Mon Dossier : Mode de d&#233;livrance_ALL</name>
+  <slug>mon_dossier_mode_de_delivrance_all</slug>
+  <documentation>Source de donn&#233;e pour le choix de d&#233;livrance mon dossier ou par la commune.</documentation>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "mondossier", "text": "MeineAkte: Ich m\u00f6chte die elektronisch signierte .pdf-Datei abrufen (e-ID-Ausweis + Pin-Code erforderlich).", "disabled": true}, {"id": "commune", "text": "Gemeinde:  Ich m\u00f6chte den Vorgang \u00fcber die Gemeinde durchf\u00fchren und das Dokument von der Gemeinde erhalten.", "disabled": false}]</value>
+  </data_source>
+</datasource>

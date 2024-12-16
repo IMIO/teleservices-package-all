@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<carddef id="10" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/cards/10/">
+  <name>iMio - Motifs d'une d&#233;marche pop/ec (ALL)</name>
+  <url_name>imio-motifs-all</url_name>
+  <submission_user_association>none</submission_user_association>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>false</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>false</enable_tracking_codes>
+  <confirmation>false</confirmation>
+  <always_advertise>false</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <workflow slug="_carddef_default" workflow_id="_carddef_default">Par d&#233;faut (fiches)</workflow>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Libell&#233;</label>
+      <required type="bool">True</required>
+      <varname type="str">text</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <prefill>
+        <type>none</type>
+      </prefill>
+      <anonymise type="str">no</anonymise>
+      <id type="str">1</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Prix</label>
+      <required type="bool">True</required>
+      <varname type="str">price</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <prefill>
+        <type>none</type>
+      </prefill>
+      <anonymise type="str">no</anonymise>
+      <validation>
+        <error_message>Le prix indiqu&#233; semble invalide. Exemple de prix valide : 2 ou 1,86.</error_message>
+        <type>regex</type>
+        <value>(\d+?[,]?\d?(?:[,]\d+)?)</value>
+      </validation>
+      <id type="str">2</id>
+    </field>
+    <field>
+      <type>text</type>
+      <label type="str">Description</label>
+      <required type="bool">False</required>
+      <varname type="str">description</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+        <item>listings</item>
+      </display_locations>
+      <prefill>
+        <type>none</type>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <display_mode type="str">pre</display_mode>
+      <id type="str">3</id>
+    </field>
+  </fields>
+  <user-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="4f4d76f9ceb54dd9ac264af21eae423c">Agent ayant acces aux fabriques</role>
+  </user-roles>
+  <backoffice-submission-roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="4f4d76f9ceb54dd9ac264af21eae423c">Agent ayant acces aux fabriques</role>
+  </backoffice-submission-roles>
+  <roles>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="4f4d76f9ceb54dd9ac264af21eae423c" role_key="_viewer">Agent ayant acces aux fabriques</role>
+    <role slug="agent-ayant-acces-aux-fabriques" role_id="4f4d76f9ceb54dd9ac264af21eae423c" role_key="_editor">Agent ayant acces aux fabriques</role>
+  </roles>
+  <options />
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <digest_templates>
+    <template key="custom-view:motifs-d-une-demarche-popec">{{ form_var_text }}</template>
+    <template key="default">{{ form_var_text }}</template>
+  </digest_templates>
+</carddef>

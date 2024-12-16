@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<mail-template id="29" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/29/">
+  <name>Indus - Par d&#233;faut - Usager - Paiement par virement re&#231;u ALL</name>
+  <slug>indus-par-defaut-usager-paiement-par-virement-recu-all</slug>
+  <subject>{{ form_name }} - Virement bancaire confirm&#233;</subject>
+  <body>Guten Tag,
+Wir best&#228;tigen Ihnen den Zahlungseingang per Bank&#252;berweisung bez&#252;glich des folgenden Antrags:
+ : {{form_name}}.
+
+Unsere Dienststellen bearbeiten die Antr&#228;ge so schnell wie m&#246;glich. Sie werden per E-Mail &#252;ber den Fortschritt Ihres Antrags informiert.
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen.&lt;{{ form_url }}&gt;`_
+{% endif %}
+
+{% if form_details %}
+Zur Referenz: Hier sind die Details des Antrags :
+
+
+{{ form_details }}
+{% endif %}
+
+{% if form_tracking_code %}
+Der Tracking-Code f&#252;r Ihren Antrag lautet wie folgt: **{{form_tracking_code}}**
+Wenn es Probleme gibt, halten Sie den Tracking-Code bereit und wenden Sie sich an die Verwaltung.{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,</body>
+</mail-template>

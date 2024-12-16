@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<datasource id="200" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/200/">
+  <name>DS Date de l'acte_ALL</name>
+  <slug>ds_date_acte_1</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "avant", "text": "Vor dem 31-03-2019"}, {"id": "apres", "text": "Nach dem 31-03-2019"}, {"id": "inconnu", "text": "Wei&#223; nicht"}]</value>
+  </data_source>
+</datasource>

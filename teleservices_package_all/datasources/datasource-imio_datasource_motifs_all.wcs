@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<datasource id="178" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/178/">
+  <name>iMio - Datasource motifs pop/ec (ALL)</name>
+  <slug>imio_datasource_motifs_all</slug>
+  <documentation>Datasource motifs (ALL)
+</documentation>
+  <data_source>
+    <type>json</type>
+    <value>{{eservices_url}}api/cards/imio-motifs-all/list?full=on</value>
+  </data_source>
+  <notify_on_errors>true</notify_on_errors>
+  <record_on_errors>true</record_on_errors>
+</datasource>

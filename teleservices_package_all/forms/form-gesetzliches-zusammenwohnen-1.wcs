@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<formdef id="166" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/166/">
+  <name>Gesetzliches Zusammenwohnen</name>
+  <url_name>gesetzliches-zusammenwohnen-1</url_name>
+  <description>&lt;p&gt;&lt;em&gt;Dokument, das best&#228;tigt, dass eine Erkl&#228;rung zum gesetzlichen Zusammenleben eingetragen wurde.&lt;/em&gt;&lt;/p&gt;</description>
+  <keywords>Gesetzliches Zusammenleben</keywords>
+  <submission_user_association>any</submission_user_association>
+  <discussion>false</discussion>
+  <detailed_emails>true</detailed_emails>
+  <disabled>true</disabled>
+  <only_allow_one>false</only_allow_one>
+  <enable_tracking_codes>true</enable_tracking_codes>
+  <confirmation>true</confirmation>
+  <always_advertise>true</always_advertise>
+  <has_captcha>false</has_captcha>
+  <skip_from_360_view>false</skip_from_360_view>
+  <category slug="etat-civil-en-allemand" category_id="101">Standesamt</category>
+  <workflow slug="imio-departement-citoyen-avec-redirection-mondossier-all" workflow_id="50">iMio - D&#233;partement Citoyen (avec redirection MONDOSSIER) ALL</workflow>
+  <fields>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;h1&gt;Mode d'emploi du formulaire&lt;/h1&gt;
+
+&lt;p&gt;Ce champ ne sera pas affich&amp;eacute; en front office&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://docs.imio.be/imio-doc/ia.teleservices/package/acte.html" rel="noopener noreferrer" target="_blank"&gt;Suivez le tutoriel sur notre page de documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="{{passerelle_url}}imio-ts1-datasources/gestion-des-motifs-et-des-destinations/" rel="noopener noreferrer" target="_blank"&gt;Ajouter, supprimer ou modifier des motifs et destination&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</label>
+      <condition>
+        <type>django</type>
+        <value>false</value>
+      </condition>
+      <display_locations />
+      <id type="str">43</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Wie erhalte ich das gew&#252;nschte Dokument?</label>
+      <id type="str">40</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;{{form_option_commentaire}}&lt;/p&gt;
+</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_commentaire</value>
+      </condition>
+      <display_locations />
+      <id type="str">e5450054-8bcf-4117-9455-12c7185d7428</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">authentication_delivrance_items_visibility</label>
+      <varname type="str">authentication_delivrance_items_visibility</varname>
+      <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">a1a6e804-75d3-4438-b33b-db4453c9460e</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;Achtung, die Bescheinigungen k&amp;ouml;nnen nur &amp;uuml;ber die Website &amp;quot;Mein Dossier&amp;quot; bezogen werden, wenn Sie sich mit Ihrem elektronischen Personalausweis anmelden und nicht mit &amp;quot;Itsme&amp;quot;.&amp;nbsp;&lt;/strong&gt;&lt;br&gt;
+&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Die Bescheinigung &amp;uuml;ber das gesetzliche Zusammenleben k&amp;ouml;nnen Sie entweder von Ihrer Gemeindeverwaltung oder direkt &amp;uuml;ber die Website des Staates erhalten. W&amp;auml;hlen Sie das Formular aus, das Sie w&amp;uuml;nschen.&amp;nbsp;&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">41</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Versandart</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique == False</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">mode_delivrance</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">radio</display_mode>
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">True</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">42</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Bescheinigung &#252;ber das Gesetzliche Zusammenwohnen</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+      </condition>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>form_var_cp_ddeur in commune_cp|split:','</value>
+          </condition>
+          <error_message>Vous devez habiter notre commune afin que l'on puisse vous d&#233;livrer ce document.</error_message>
+        </post_condition>
+      </post_conditions>
+      <id type="str">24</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p class="accroche"&gt;Dokument,&amp;nbsp;das&amp;nbsp;best&amp;auml;tigt,&amp;nbsp;dass&amp;nbsp;eine&amp;nbsp;Erkl&amp;auml;rung&amp;nbsp;&amp;uuml;ber&amp;nbsp;das&amp;nbsp;gesetzliche&amp;nbsp;Zusammenleben&amp;nbsp;registriert&amp;nbsp;wurde.&lt;/p&gt;
+
+&lt;p class="accroche"&gt;Wenn&amp;nbsp;Sie&amp;nbsp;den&amp;nbsp;Postversand&amp;nbsp;w&amp;auml;hlen,&amp;nbsp;wird&amp;nbsp;das&amp;nbsp;angeforderte&amp;nbsp;Dokument&amp;nbsp;immer&amp;nbsp;an&amp;nbsp;die&amp;nbsp;Adresse&amp;nbsp;der&amp;nbsp;Person&amp;nbsp;gesendet,&amp;nbsp;die&amp;nbsp;von&amp;nbsp;dem Dokument&amp;nbsp;betroffen&amp;nbsp;ist.&lt;/p&gt;
+
+&lt;p class="accroche"&gt;Wenn&amp;nbsp;Sie&amp;nbsp;sich&amp;nbsp;f&amp;uuml;r&amp;nbsp;die&amp;nbsp;Abholung&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Gemeinde&amp;nbsp;entscheiden,&amp;nbsp;wird&amp;nbsp;Ihnen&amp;nbsp;die&amp;nbsp;Bescheinigung&amp;nbsp;gegen&amp;nbsp;Vorlage&amp;nbsp;Ihres&amp;nbsp;Personalausweises&amp;nbsp; (sowie&amp;nbsp;einer unterschriebenen&amp;nbsp;Vollmacht,&amp;nbsp;wenn&amp;nbsp;Sie&amp;nbsp;es&amp;nbsp;f&amp;uuml;r&amp;nbsp;einen&amp;nbsp;Dritten&amp;nbsp;zur&amp;uuml;ckziehen)&amp;nbsp;ausgestellt.&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Bearbeitung :&lt;/u&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;
+	&lt;p&gt;F&amp;uuml;llen&amp;nbsp;Sie&amp;nbsp;Ihre&amp;nbsp;Anfrage&amp;nbsp;&amp;uuml;ber&amp;nbsp;das&amp;nbsp;untenstehende&amp;nbsp;Formular&amp;nbsp;aus.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Fahren&amp;nbsp;Sie&amp;nbsp;gegebenenfalls&amp;nbsp;mit&amp;nbsp;der&amp;nbsp;Zahlung&amp;nbsp;fort&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Sie&amp;nbsp;erhalten&amp;nbsp;eine&amp;nbsp;Zusammenfassung&amp;nbsp;Ihrer&amp;nbsp;Anfrage&amp;nbsp;an&amp;nbsp;die&amp;nbsp;im&amp;nbsp;Formular&amp;nbsp;angegebene&amp;nbsp;E-Mail-Adresse.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Wenn&amp;nbsp;Ihr&amp;nbsp;Antrag&amp;nbsp;g&amp;uuml;ltig&amp;nbsp;ist,&amp;nbsp;erhalten&amp;nbsp;Sie&amp;nbsp;in&amp;nbsp;K&amp;uuml;rze&amp;nbsp;Ihr&amp;nbsp;Dokument&amp;nbsp;entsprechend&amp;nbsp;der&amp;nbsp;gew&amp;auml;hlten&amp;nbsp;Art&amp;nbsp;der&amp;nbsp;Ausstellung.&amp;nbsp;Falls&amp;nbsp;nicht,&amp;nbsp;werden&amp;nbsp;Sie&amp;nbsp;per&amp;nbsp;E-Mail&amp;nbsp;benachrichtigt.&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;
+</label>
+      <display_locations />
+      <id type="str">26</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ihre Postleizahl</label>
+      <required type="bool">False</required>
+      <varname type="str">cp_ddeur</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">36</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Bescheinigung &#252;ber das Gesetzliche Zusammenwohnen - Ihre Daten</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+      </condition>
+      <post_conditions>
+        <post_condition>
+          <condition>
+            <type>django</type>
+            <value>form_var_cp in commune_cp|split:','</value>
+          </condition>
+          <error_message>Vous devez habiter notre commune afin que l'on puisse vous d&#233;livrer ce document.</error_message>
+        </post_condition>
+      </post_conditions>
+      <id type="str">1</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;&lt;strong&gt;WENN&amp;nbsp;DAS&amp;nbsp;ANGEFRAGTE DOKUMENT&amp;nbsp;EINE&amp;nbsp;ANDERE&amp;nbsp;PERSON&amp;nbsp;BETRIFFT,&amp;nbsp;KANN&amp;nbsp;ES&amp;nbsp;IHNEN&amp;nbsp;NICHT&amp;nbsp;ZUGESTELLT&amp;nbsp;WERDEN.&lt;/strong&gt;&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">2</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;* = Pflichtfeld&amp;nbsp;&lt;/p&gt;
+</label>
+      <display_locations />
+      <id type="str">9</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Name</label>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_last_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">6</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Vorname</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_first_name</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">7</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nationalregisternummer</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Die Nationalnummer befindet sich auf Ihrem Personalausweis. &lt;/p&gt;</hint>
+      <varname type="str">nn</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2 newline</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_niss</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">8</id>
+    </field>
+    <field>
+      <type>email</type>
+      <label type="str">E-Mail-Adresse</label>
+      <required type="bool">True</required>
+      <varname type="str">email</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_email</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">17</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Telefonnummer</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Nur Ziffern und das Zeichen + werden akzeptiert (und nicht -,/,...) &lt;/p&gt;</hint>
+      <varname type="str">tel</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_phone</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <error_message>Seuls les chiffres et le signe + sont accept&#233;s (pas de -, /, ...). Merci d'encoder minimum 9 chiffres.</error_message>
+        <type>regex</type>
+        <value>^(0|\+|00)(\d{8,})$</value>
+      </validation>
+      <id type="str">18</id>
+    </field>
+    <field>
+      <type>subtitle</type>
+      <label type="str">ANSCHRIFT</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">11</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Stra&#223;e</label>
+      <required type="bool">True</required>
+      <varname type="str">rue</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-2 newline</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_street</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">12</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Hausnummer</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Beispiel: 12 oder 145, und nicht 1C oder 12/21, dies ist im Feld Briefkastennummer anzugeben.&lt;/p&gt;</hint>
+      <varname type="str">numero</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>[1-9][0-9]*</value>
+      </validation>
+      <id type="str">13</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Briefkastennummer</label>
+      <required type="bool">False</required>
+      <varname type="str">boite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_num_box</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">14</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Postleizahl</label>
+      <required type="bool">False</required>
+      <varname type="str">cp</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_zipcode</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">37</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Ort</label>
+      <required type="bool">False</required>
+      <varname type="str">localite</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>user</type>
+        <value>_city</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">38</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Land</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;W&#228;hlen Sie eine Option aus &lt;/p&gt;</hint>
+      <varname type="str">pays</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-4</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">autocomplete</display_mode>
+      <data_source>
+        <type>pays</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">39</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Zus&#228;tzliche Informationen</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+      </condition>
+      <id type="str">27</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Gew&#252;nschtes Datum des Dokuments</label>
+      <required type="bool">True</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>{{ today }}</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">21</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">Das Dokument ist bestimmt f&#252;r</label>
+      <varname type="str">le_document_est_destine_a</varname>
+      <value_template type="str">{% firstof form_option_motifs_disponibles_structured data_source.passerelle_motifs %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">0cab413d-3159-49cd-b767-0a4b79ff4182</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Das Dokument ist bestimmt f&#252;r</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;W&#228;hlen Sie eine Option aus &lt;/p&gt;</hint>
+      <varname type="str">motifs</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">28</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Falls Sonstiges</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_motifs_raw == 'autre'</value>
+      </condition>
+      <required type="bool">False</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">29</id>
+    </field>
+    <field>
+      <type>computed</type>
+      <label type="str">Versandart</label>
+      <varname type="str">mode_d_envoi</varname>
+      <value_template type="str">{% firstof form_option_mode_recup_disponibles_structured data_source.passerelle_destinations %}</value_template>
+      <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
+      <id type="str">129d142f-b723-4dd0-aea3-137683546f6b</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Versandart</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;W&#228;hlen Sie eine Option aus&lt;/p&gt;</hint>
+      <varname type="str">destinations</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>jsonvalue</type>
+        <value>{{ form_var_mode_d_envoi|unlazy_filter|json_dumps }}</value>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <initial_zoom type="str">13</initial_zoom>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">30</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Anzahl der angefragten Bescheinigungen</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;Maximal 20 Exemplare &lt;/p&gt;</hint>
+      <varname type="str">nb_exemplaire</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-2</extra_css_class>
+      <prefill>
+        <locked>False</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>1</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>regex</type>
+        <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
+      </validation>
+      <id type="str">31</id>
+    </field>
+    <field>
+      <type>page</type>
+      <label type="str">Preis der Anfrage</label>
+      <condition>
+        <type>django</type>
+        <value>form_option_redirection_automatique and not session_user|is_strong_authentication or form_var_mode_delivrance_raw == 'commune'</value>
+      </condition>
+      <id type="str">32</id>
+    </field>
+    <field>
+      <type>comment</type>
+      <label type="str">&lt;p&gt;Bitte&amp;nbsp;beachten&amp;nbsp;Sie&amp;nbsp;unten&amp;nbsp;den&amp;nbsp;Betrag&amp;nbsp;Ihrer&amp;nbsp;Bestellung.&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Ihre Anfrage wird automatisch in Ihren Warenkorb gelegt, um eine Gesamtzahlung Ihrer Bestellung zu erhalten.&amp;nbsp;&lt;/li&gt;
+	&lt;li&gt;Zu&amp;nbsp;diesem&amp;nbsp;Betrag&amp;nbsp;m&amp;uuml;ssen&amp;nbsp;eventuell&amp;nbsp;die&amp;nbsp;Versandkosten&amp;nbsp;hinzugef&amp;uuml;gt&amp;nbsp;werden.&lt;/li&gt;
+&lt;/ul&gt;
+</label>
+      <display_locations />
+      <id type="str">33</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Betrag</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;(zuz&#252;glich eventuelle Portokosten)&lt;/p&gt;</hint>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <prefill>
+        <locked>True</locked>
+        <locked-unless-empty>False</locked-unless-empty>
+        <type>string</type>
+        <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} &#8364;</value>
+      </prefill>
+      <anonymise type="str">final</anonymise>
+      <id type="str">44</id>
+    </field>
+  </fields>
+  <options>
+    <option varname="baec" />
+    <option varname="cout">0</option>
+    <option varname="cp_commune">[cp_commune]</option>
+    <option varname="destinations" />
+    <option varname="destinations_display" />
+    <option varname="destinations_structured" />
+    <option varname="iban" />
+    <option varname="lien_bosa">https://mondossier.rrn.fgov.be/fr/certificats.do#tab_tx_31</option>
+    <option varname="lien_mondossier">https://mondossier.rrn.fgov.be/fr/certificats.do#tab_tx_B31</option>
+    <option varname="mode_recup_disponibles" />
+    <option varname="mode_recup_disponibles_display" />
+    <option varname="mode_recup_disponibles_structured" />
+    <option varname="motifs_disponibles" />
+    <option varname="motifs_disponibles_display" />
+    <option varname="motifs_disponibles_structured" />
+    <option varname="paiement_en_ligne" />
+    <option varname="redirection_automatique" />
+    <option varname="regie_de_paiement" />
+    <option varname="regie_de_paiement_display" />
+    <option varname="regie_de_paiement_structured" />
+    <option varname="reglement_communal" />
+  </options>
+  <custom_views />
+  <geolocations />
+  <management_sidebar_items>
+    <item>__default__</item>
+  </management_sidebar_items>
+  <workflow-migrations>
+    <migration old-workflow="imio-departement-citoyen-avec-redirection-mondossier" new-workflow="imio-departement-citoyen-avec-redirection-mondossier-all" timestamp="2024-12-16T10:02:03.922725+01:00">
+      <timestamp>2024-12-16T10:02:03.922725+01:00</timestamp>
+      <status-mapping />
+    </migration>
+  </workflow-migrations>
+</formdef>

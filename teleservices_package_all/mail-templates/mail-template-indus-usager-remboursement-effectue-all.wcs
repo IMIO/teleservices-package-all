@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<mail-template id="28" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/workflows/mail-templates/28/">
+  <name>Indus - Usager - Remboursement effectu&#233; ALL</name>
+  <slug>indus-usager-remboursement-effectue-all</slug>
+  <subject>{{ form_name }} - Remboursement effectu&#233;</subject>
+  <body>Guten Tag,
+
+Sie haben folgenden Antrag eingereicht : {{ form_name }}.
+Wir m&#246;chten Ihnen mitteilen, dass Ihnen soeben eine R&#252;ckerstattung gew&#228;hrt und vorgenommen wurde.
+
+{% if form_user %}
+Sie k&#246;nnen den Antrag einsehen. &lt;{{ form_url }}&gt;`_
+{% endif %}
+
+Mit freundlichen Gr&#252;&#223;en,</body>
+</mail-template>

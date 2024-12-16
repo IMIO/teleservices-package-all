@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<block id="19" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/blocks/19/">
+  <name>iMio - Identit&#228;t &#196;nderung Wohnanschrift</name>
+  <slug>imio_identitat_anderung_wohnanschrift</slug>
+  <digest_template>{{identite_changement_adresse_var_nom}} {{identite_changement_adresse_var_prenom}} {{identite_changement_adresse_var_nrn}} {{identite_changement_adresse_var_lien_parente}}</digest_template>
+  <fields>
+    <field>
+      <type>string</type>
+      <label type="str">Name</label>
+      <required type="bool">True</required>
+      <varname type="str">nom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfe6df476b-ef50-4985-8cf1-770eddd46a37</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Vorname</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bf1e4c022c-d9fa-45fc-9e27-63b3d40cda54</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Verwandtschaftsverh&#228;ltnis</label>
+      <required type="bool">False</required>
+      <varname type="str">lien_parente</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">bfbf0350ef-23e5-4690-81f6-2b105d525475</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Nationalregisternummer</label>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;&lt;strong&gt;Die Identifikationsnummer des Nationalregisters befindet sich auf dem Personalausweis.&lt;/strong&gt;&lt;/p&gt;</hint>
+      <varname type="str">nrn</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">newline grid-1-4</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <validation>
+        <type>nrn-be</type>
+      </validation>
+      <id type="str">bf02110074-9e65-48f9-b33f-f771b564d50a</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Geburtsdatum</label>
+      <required type="bool">True</required>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-2-12</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">bfdbc52ceb-9c6d-4c1a-b198-40f82f69989c</id>
+    </field>
+  </fields>
+</block>
