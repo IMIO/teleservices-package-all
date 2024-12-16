@@ -1,0 +1,9 @@
+recursive-include teleservices_package *
+recursive-include teleservices_package/categories *
+recursive-include teleservices_package/combo *
+recursive-include teleservices_package/datasources *
+recursive-include teleservices_package/forms *
+recursive-include teleservices_package/workflows *
+include MANIFEST.in
+include VERSION
+include README
