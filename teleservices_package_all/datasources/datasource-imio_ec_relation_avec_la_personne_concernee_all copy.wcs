@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="204" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/204/">
+  <name>iMio - EC - Relation avec la personne concern&#233;e ALL</name>
+  <slug>imio_ec_relation_avec_la_personne_concernee_all</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "je-suis-le-representant-legal", "text": "Ich bin der gesetzliche Vertreter"}, {"id": "je-suis-lepoux-epouse-cohabitant-legal", "text": "Ich bin der Ehegatte/die Ehegattin/der gesetzliche Mitbewohner/die gesetzliche Mitbewohnerin"}, {"id": "je-suis-un-ascendant-descendant-au-premier-degre", "text": "Ich bin ein Verwandter ersten Grades in aufsteigender/nachfolgender Linie"}, {"id": "je-suis-heretier", "text": "Ich bin Erbe"}, {"id": "je-suis-son-avocat-notaire", "text": "Ich bin ihr/sein Anwalt/Notar"}, {"id": "autre", "text": "Andere"}]</value>
+  </data_source>
+  <category slug="imio-population-etat-civil-all" category_id="2">iMio - Population - Etat civil - ALL</category>
+</datasource>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datasource id="205" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/settings/data-sources/205/">
+  <name>iMio - EC - Int&#233;r&#234;ts l&#233;gitimes ALL</name>
+  <slug>imio_ec_interets_legitimes_all</slug>
+  <data_source>
+    <type>jsonvalue</type>
+    <value>[{"id": "etablir-ou-modifier-un-acte-d-etat-civil-a-l-etranger", "text": "Eine Personenstandsurkunde im Ausland ausstellen oder ab&#228;ndern"}, {"id": "mener-des-procedures-judiciaires-concernant-l-etat-de-la-personne", "text": "Gerichtliche Verfahren in Bezug auf den Personenstand durchf&#252;hren"}, {"id": "s-enregistrer-aupres-d-une-instance-de-securite-sociale-etrangere-ou-d-une-autre-autorite-etrangere", "text": "Sich bei einer ausl&#228;ndischen Sozialversicherungsbeh&#246;rde oder einer anderen ausl&#228;ndischen Beh&#246;rde registrieren lassen"}, {"id": "justifier-d-une-parent&#233;-en-vue-d-effectuer-un-voyage", "text": "Nachweis einer Verwandtschaft im Hinblick auf die Durchf&#252;hrung einer Reise"}, {"id": "etablir-un-acte-notarie", "text": "Eine notarielle Urkunde ausstellen"}, {"id": "accepter-ou-renoncer-a-une-succession", "text": "Eine Erbschaft annehmen oder ausschlagen"}, {"id": "rechercher-un-emploi-a-l-etranger", "text": "Eine Arbeitsstelle im Ausland suchen"}, {"id": "demander-un-passeport-une-carte-d-identite-ou-un-permis-de-conduire-etrangers", "text": "Einen ausl&#228;ndischen Reisepass, Personalausweis oder F&#252;hrerschein beantragen"}, {"id": "connaitre-ses-testateurs-ou-heritiers", "text": "Seine Erblasser oder Erben kennen"}, {"id": "etre-en-possession-d-un-mandat-prive-de-la-personne-dont-l-acte-etablit-ou-modifie-l-etat-de-la-personne", "text": "Im Besitz einer privaten Vollmacht der Person sein, deren Urkunde den Status der Person begr&#252;ndet oder &#228;ndert"}]</value>
+  </data_source>
+  <category slug="imio-population-etat-civil-all" category_id="2">iMio - Population - Etat civil - ALL</category>
+</datasource>

@@ -126,7 +126,7 @@
       <label type="str">Betrifft eine andere Person : Nachweis</label>
       <condition>
         <type>django</type>
-        <value>form_option_actes_piece_justificative_tiers == "Oui" and form_var_rb_concerne == "Concerne une autre personne"</value>
+        <value>False</value>
       </condition>
       <required type="bool">True</required>
       <hint type="str">&lt;p&gt;Bitte reichen Sie ein Dokument ein, das Ihren Antrag f&#252;r eine Drittperson begr&#252;ndet (Kopie des Personalausweises, Vollmacht oder Rechtsgrund).&lt;/p&gt;</hint>
@@ -449,7 +449,7 @@ Die&amp;nbsp;Scheidung&amp;nbsp;wird&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Heiratsur
     </field>
     <field>
       <type>page</type>
-      <label type="str">Verwandtschaftsverh&#228;ltnis</label>
+      <label type="str">Beziehung zur betroffenen Person</label>
       <condition>
         <type>django</type>
         <value>form_var_rb_concerne_raw == 'tiers'</value>
@@ -458,7 +458,7 @@ Die&amp;nbsp;Scheidung&amp;nbsp;wird&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Heiratsur
     </field>
     <field>
       <type>item</type>
-      <label type="str">Verwandtschaftsverh&#228;ltnis :</label>
+      <label type="str">Beziehung zur betroffenen Person</label>
       <required type="bool">True</required>
       <varname type="str">parente</varname>
       <display_locations>
@@ -474,7 +474,7 @@ Die&amp;nbsp;Scheidung&amp;nbsp;wird&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Heiratsur
         <item>Autre (&#224; pr&#233;ciser)</item>
       </items>
       <data_source>
-        <type>ds_lien_parente_all</type>
+        <type>imio_ec_relation_avec_la_personne_concernee_all</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>
@@ -1010,6 +1010,92 @@ Die&amp;nbsp;Scheidung&amp;nbsp;wird&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Heiratsur
     </field>
     <field>
       <type>page</type>
+      <label type="str">Zus&#228;tzliche Informationen zur Ehe</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_date_acte != 'Apr&#232;s le 31-03-2019' and form_var_acces_page_non_baec</value>
+      </condition>
+      <id type="str">62c7066d-e3a8-4ae8-850e-d7f5cf07c558</id>
+    </field>
+    <field>
+      <type>title</type>
+      <label type="str">Zus&#228;tzliche Informationen zur Ehe</label>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <id type="str">b2ce1cb9-a683-4484-8259-87f76c5df6c3</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Postleitzahl</label>
+      <required type="bool">True</required>
+      <varname type="str">code_postal_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">cdf00a6c-f2c6-40b1-b3e6-f5d11461d070</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Lokalit&#228;t</label>
+      <required type="bool">True</required>
+      <varname type="str">localite_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">170ebb48-5b9f-43e0-baed-8392ab9e8d87</id>
+    </field>
+    <field>
+      <type>date</type>
+      <label type="str">Hochzeitsdatum</label>
+      <required type="bool">True</required>
+      <varname type="str">date_du_mariage</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <minimum_is_future type="bool">False</minimum_is_future>
+      <date_in_the_past type="bool">True</date_in_the_past>
+      <date_can_be_today type="bool">True</date_can_be_today>
+      <id type="str">8f9b4efb-09d1-44bb-b47c-cdee917f93ad</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Name des Ehepartners</label>
+      <required type="bool">True</required>
+      <varname type="str">nom_du_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">69fd0b24-29f7-4cbf-a933-767527fe04a2</id>
+    </field>
+    <field>
+      <type>string</type>
+      <label type="str">Vorname des Ehepartners</label>
+      <required type="bool">True</required>
+      <varname type="str">prenom_du_conjoint</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <extra_css_class type="str">grid-1-3</extra_css_class>
+      <anonymise type="str">final</anonymise>
+      <id type="str">e23659a2-6583-45e1-8e5f-76b4bfbcfc2a</id>
+    </field>
+    <field>
+      <type>page</type>
       <label type="str">Verwendungszweck</label>
       <condition>
         <type>django</type>
@@ -1122,6 +1208,51 @@ Die&amp;nbsp;Scheidung&amp;nbsp;wird&amp;nbsp;in&amp;nbsp;der&amp;nbsp;Heiratsur
         <value>^[1-9]$|^[0-1][0-9]$|^20$</value>
       </validation>
       <id type="str">35</id>
+    </field>
+    <field>
+      <type>item</type>
+      <label type="str">Was ist das berechtigte Interesse Ihrer Anfrage?</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <hint type="str">&lt;p&gt;W&#228;hlen Sie Ihr berechtigtes Interesse aus&lt;/p&gt;</hint>
+      <varname type="str">interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">no</anonymise>
+      <display_mode type="str">list</display_mode>
+      <data_source>
+        <type>imio_ec_interets_legitimes_all</type>
+      </data_source>
+      <in_filters type="bool">False</in_filters>
+      <display_disabled_items type="bool">False</display_disabled_items>
+      <use_hint_as_first_option type="bool">True</use_hint_as_first_option>
+      <image_desktop_size type="str">150</image_desktop_size>
+      <image_mobile_size type="str">75</image_mobile_size>
+      <id type="str">5adab2c6-26d5-4bd4-92ff-161171d89ace</id>
+    </field>
+    <field>
+      <type>file</type>
+      <label type="str">Nachweis des berechtigten Interesses</label>
+      <condition>
+        <type>django</type>
+        <value>form_var_parente_raw != "je-suis-le-representant-legal" and form_var_rb_concerne_raw == "tiers"</value>
+      </condition>
+      <required type="bool">True</required>
+      <varname type="str">preuve_interet_legitime</varname>
+      <display_locations>
+        <item>validation</item>
+        <item>summary</item>
+      </display_locations>
+      <anonymise type="str">final</anonymise>
+      <allow_portfolio_picking type="bool">False</allow_portfolio_picking>
+      <automatic_image_resize type="bool">True</automatic_image_resize>
+      <storage type="str">default</storage>
+      <id type="str">95b3ab3d-7ec7-41b1-92f2-6dbf24f4daa8</id>
     </field>
     <field>
       <type>page</type>

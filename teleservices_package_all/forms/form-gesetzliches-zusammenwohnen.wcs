@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <formdef id="166" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/166/">
   <name>Gesetzliches Zusammenwohnen</name>
-  <url_name>gesetzliches-zusammenwohnen-1</url_name>
+  <url_name>gesetzliches-zusammenwohnen</url_name>
   <description>&lt;p&gt;&lt;em&gt;Dokument, das best&#228;tigt, dass eine Erkl&#228;rung zum gesetzlichen Zusammenleben eingetragen wurde.&lt;/em&gt;&lt;/p&gt;</description>
   <keywords>Gesetzliches Zusammenleben</keywords>
   <submission_user_association>any</submission_user_association>
