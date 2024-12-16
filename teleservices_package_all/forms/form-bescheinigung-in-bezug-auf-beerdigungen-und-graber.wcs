@@ -99,7 +99,7 @@
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <data_source>
-        <type>ds_personne_concernee_all_1</type>
+        <type>ds_personne_concernee_all</type>
       </data_source>
       <in_filters type="bool">False</in_filters>
       <display_disabled_items type="bool">False</display_disabled_items>

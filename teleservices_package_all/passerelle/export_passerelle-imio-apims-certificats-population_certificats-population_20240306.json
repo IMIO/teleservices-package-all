@@ -1,0 +1,17 @@
+{
+  "resources": [
+    {
+      "@type": "passerelle-resource",
+      "resource_type": "passerelle_imio_apims_certificats_population.apimscertificatspopulationconnector",
+      "title": "Registre national",
+      "slug": "connecteur-rn",
+      "description": "Connecteur certificats population",
+      "log_level": "ERROR",
+      "access_rights": [],
+      "url": "https://api.imio.be/bosa/v1",
+      "username": "",
+      "password": "",
+      "municipality_token": ""
+    }
+  ]
+}
