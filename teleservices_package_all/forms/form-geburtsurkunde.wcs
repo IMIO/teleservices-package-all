@@ -2,8 +2,8 @@
 <formdef id="160" url="https://kelmis-formulaires.guichet-citoyen.be/backoffice/forms/160/">
   <name>Geburtsurkunde</name>
   <url_name>geburtsurkunde</url_name>
-  <description>&lt;p&gt;&lt;em&gt;Der Auszug aus der Geburtsurkunde kann in jeder Gemeinde in Belgien angefordert werden, wenn die Geburt in Belgien stattgefunden hat. .&lt;/em&gt;&lt;/p&gt;</description>
-  <keywords>Geburt</keywords>
+  <description>&lt;p&gt;&lt;em&gt;Der Auszug aus der Geburtsurkunde kann nur in der Gemeinde beantragt werden, in der die Geburtserkl&amp;auml;rung stattgefunden hat.&#8203;&lt;/em&gt;&lt;/p&gt;
+</description>
   <submission_user_association>any</submission_user_association>
   <discussion>false</discussion>
   <detailed_emails>true</detailed_emails>
@@ -52,7 +52,7 @@
       <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
-      <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
+      <value_template type="str">{{ data_source.mon_dossier_mode_de_delivrance_all|authentication_delivrance_items_visibility:session_user }}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">fc70b113-d13d-4be5-801b-f18b816621c8</id>
     </field>
@@ -91,6 +91,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_personne_concernee_all</type>
       </data_source>
@@ -137,7 +138,7 @@
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
       <data_source>
-        <type>imio_domicile_population_1</type>
+        <type>jsonvalue</type>
         <value>{{ form_var_authentication_delivrance_items_visibility|unlazy_filter|json_dumps }}</value>
       </data_source>
       <in_filters type="bool">False</in_filters>
@@ -189,6 +190,7 @@
       </display_locations>
       <anonymise type="str">final</anonymise>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>baec_documents_by_category</type>
       </data_source>
@@ -264,6 +266,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>ds_date_acte_1</type>
       </data_source>
@@ -337,6 +340,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">radio</display_mode>
+      <items />
       <data_source>
         <type>jsonvalue</type>
         <value>{{ form_var_baec_document_select_types|json_dumps }}</value>
@@ -401,6 +405,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">autocomplete</display_mode>
+      <items />
       <data_source>
         <type>langues_1</type>
       </data_source>
@@ -648,8 +653,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -669,6 +672,7 @@
       <extra_css_class type="str">grid-2-4</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>land_1</type>
       </data_source>
@@ -703,8 +707,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -750,8 +752,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_last_name</value>
       </prefill>
@@ -769,8 +769,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_first_name</value>
       </prefill>
@@ -789,8 +787,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_niss</value>
       </prefill>
@@ -812,8 +808,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_birthdate</value>
       </prefill>
@@ -873,8 +867,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_street</value>
       </prefill>
@@ -893,8 +885,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_num_house</value>
       </prefill>
@@ -916,8 +906,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_num_box</value>
       </prefill>
@@ -935,8 +923,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_zipcode</value>
       </prefill>
@@ -954,8 +940,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-4</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_city</value>
       </prefill>
@@ -975,6 +959,7 @@
       <extra_css_class type="str">grid-2-4</extra_css_class>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>land_1</type>
       </data_source>
@@ -996,8 +981,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2 newline</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_email</value>
       </prefill>
@@ -1015,8 +998,6 @@
       </display_locations>
       <extra_css_class type="str">grid-1-2</extra_css_class>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>user</type>
         <value>_phone</value>
       </prefill>
@@ -1057,6 +1038,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>carddef:imio-motifs-all</type>
         <value>{{ form_var_le_document_est_destine_a|unlazy_filter|json_dumps }}</value>
@@ -1104,6 +1086,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>imio_datasource_modes_envoi_all</type>
         <value>{{ form_var_mode_de_recuperation|unlazy_filter|json_dumps }}</value>
@@ -1127,8 +1110,6 @@
         <item>summary</item>
       </display_locations>
       <prefill>
-        <locked>False</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>1</value>
       </prefill>
@@ -1155,6 +1136,7 @@
       </display_locations>
       <anonymise type="str">no</anonymise>
       <display_mode type="str">list</display_mode>
+      <items />
       <data_source>
         <type>imio_ec_interets_legitimes_all</type>
       </data_source>
@@ -1216,7 +1198,6 @@
       </display_locations>
       <prefill>
         <locked>True</locked>
-        <locked-unless-empty>False</locked-unless-empty>
         <type>string</type>
         <value>{{form_option_cout|add:form_var_motifs.fields.price|multiply:form_var_nb_exemplaire}} &#8364;</value>
       </prefill>

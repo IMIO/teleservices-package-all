@@ -51,7 +51,7 @@
       <type>computed</type>
       <label type="str">authentication_delivrance_items_visibility</label>
       <varname type="str">authentication_delivrance_items_visibility</varname>
-      <value_template type="str">{{ data_source.mode_de_delivrance|authentication_delivrance_items_visibility:session_user }}</value_template>
+      <value_template type="str">{{ data_source.mon_dossier_mode_de_delivrance_all|authentication_delivrance_items_visibility:session_user }}</value_template>
       <freeze_on_initial_value type="bool">False</freeze_on_initial_value>
       <id type="str">7e3131e9-4f9b-4e18-bbcf-a6e4fb159f8e</id>
     </field>

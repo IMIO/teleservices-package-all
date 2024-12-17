@@ -1953,6 +1953,18 @@ Cordialement, </body>
           <anonymise type="str">final</anonymise>
           <id type="str">14</id>
         </field>
+        <field>
+          <type>bool</type>
+          <label type="str">redirection automatique</label>
+          <required type="bool">False</required>
+          <varname type="str">redirection_automatique</varname>
+          <display_locations>
+            <item>validation</item>
+            <item>summary</item>
+          </display_locations>
+          <anonymise type="str">no</anonymise>
+          <id type="str">443b41e0-802b-47d1-a26a-36fcc6b2003d</id>
+        </field>
       </fields>
     </formdef>
   </variables>
