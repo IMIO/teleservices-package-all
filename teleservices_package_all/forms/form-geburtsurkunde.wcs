@@ -1199,7 +1199,7 @@
       <prefill>
         <locked>True</locked>
         <type>string</type>
-        <value>{{form_option_cout|add:form_var_motifs.fields.price|multiply:form_var_nb_exemplaire}} &#8364;</value>
+        <value>{{form_option_cout|add:form_var_motifs_price|multiply:form_var_nb_exemplaire}} €</value>
       </prefill>
       <anonymise type="str">final</anonymise>
       <id type="str">99</id>
