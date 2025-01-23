@@ -156,7 +156,7 @@
           <status>13</status>
           <condition>
             <type>django</type>
-            <value>form_var_wf_total_commande|add:0 == 0 and form_var_destinations_paymentrequired == "False"</value>
+            <value>form_var_wf_total_commande|add:0 == 0 and form_var_destinations_paymentrequired == "False" or form_var_wf_total_commande|add:0 == 0 and not form_var_destinations_paymentrequired</value>
           </condition>
           <mode>immediate</mode>
           <set_marker_on_status>False</set_marker_on_status>
